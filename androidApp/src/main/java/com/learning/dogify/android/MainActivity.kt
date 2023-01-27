@@ -14,7 +14,6 @@ suspend fun greet()= "${FetchBreedsUseCase().invoke()}\n" +
         "${GetBreedsUseCase().invoke()}\n" +
         "${ToggleFavouriteStateUseCase().invoke(Breed
             ("toggle favourite state test", ""))}\n"
-
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
