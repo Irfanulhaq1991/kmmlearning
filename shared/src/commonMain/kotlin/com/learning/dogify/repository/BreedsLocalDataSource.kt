@@ -1,10 +1,14 @@
 package com.learning.dogify.repository
 
+
 import com.learning.dogify.db.DogifyDatabase
 import com.learning.dogify.model.Breed
 import com.learning.dogify.util.DispatcherProvider
+import com.squareup.sqldelight.Query
 import com.squareup.sqldelight.runtime.coroutines.asFlow
 import com.squareup.sqldelight.runtime.coroutines.mapToList
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
 
@@ -38,4 +42,9 @@ internal class BreedsLocalDataSource(
     suspend fun clear() = withContext(dispatcherProvider.io){
         dao.clear()
     }
+}
+
+fun <T:Any> Query<T>.toFlow(): Flow<T> = flow{
+
+
 }
